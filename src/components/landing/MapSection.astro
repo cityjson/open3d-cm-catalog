@@ -1,0 +1,71 @@
+---
+import { hasMap, mapHref, site } from "@/lib/site";
+---
+
+<section
+  id="map"
+  style="background:#091420; border-top:1px solid rgba(255,255,255,.06); padding:96px 56px;"
+>
+  <div style="max-width:1280px; margin:0 auto;">
+    <div
+      style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:36px; flex-wrap:wrap;"
+    >
+      <div>
+        <div
+          style="font-family:'Geist Mono Variable',monospace; font-size:12.5px; letter-spacing:.18em; text-transform:uppercase; color:#7e96a3; margin-bottom:18px;"
+        >
+          03 — Coverage
+        </div>
+        <h2
+          style="margin:0 0 14px; font-size:40px; line-height:1.1; letter-spacing:-.02em; font-weight:700; text-wrap:balance;"
+        >
+          The whole registry, on a map.
+        </h2>
+        <p style="margin:0; font-size:18px; line-height:1.55; color:#9fb2bd; max-width:40em;">
+          Every contributed dataset is georeferenced — so you can see global coverage and find models
+          by location.
+        </p>
+      </div>
+      <a
+        href={mapHref}
+        target="_blank"
+        rel="noreferrer"
+        style="display:inline-flex; align-items:center; gap:9px; border:1px solid rgba(255,255,255,.2); color:#eaf1f5; font-weight:500; font-size:15px; padding:12px 20px; border-radius:4px; text-decoration:none; white-space:nowrap;"
+        >Open full map
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          ><path d="M7 17 17 7M9 7h8v8"></path></svg
+        ></a
+      >
+    </div>
+    <div
+      style="border:1px solid rgba(255,255,255,.12); border-radius:8px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.4); height:520px; position:relative;"
+    >
+      {
+        hasMap ? (
+          <iframe
+            src={site.mapEmbedUrl}
+            title="3D city model coverage map"
+            style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"
+            loading="lazy"
+            allowfullscreen
+          />
+        ) : (
+          <div style="position:absolute; inset:0; background:#081019; background-image:radial-gradient(rgba(0,166,214,.16) 1px,transparent 1.4px); background-size:24px 24px;">
+            <div style="position:absolute; inset:0; background:linear-gradient(120deg, rgba(8,16,25,.2), rgba(0,166,214,.06));" />
+            <div style="position:absolute; left:30%; top:38%; width:14px;height:14px;border-radius:50%;background:#00a6d6;box-shadow:0 0 0 6px rgba(0,166,214,.16); animation:o3d-pulse 2.6s ease-in-out infinite;" />
+            <div style="position:absolute; left:48%; top:30%; width:11px;height:11px;border-radius:50%;background:#34c3f0;box-shadow:0 0 0 5px rgba(0,166,214,.14); animation:o3d-pulse 3.1s ease-in-out infinite;" />
+            <div style="position:absolute; left:55%; top:52%; width:12px;height:12px;border-radius:50%;background:#00a6d6;box-shadow:0 0 0 6px rgba(0,166,214,.14); animation:o3d-pulse 2.3s ease-in-out infinite;" />
+            <div style="position:absolute; left:68%; top:42%; width:10px;height:10px;border-radius:50%;background:#e5b33a;box-shadow:0 0 0 5px rgba(229,179,58,.16); animation:o3d-pulse 2.9s ease-in-out infinite;" />
+            <div style="position:absolute; left:40%; top:60%; width:9px;height:9px;border-radius:50%;background:#34c3f0;box-shadow:0 0 0 4px rgba(0,166,214,.12); animation:o3d-pulse 3.4s ease-in-out infinite;" />
+            <div style="position:absolute; left:74%; top:64%; width:9px;height:9px;border-radius:50%;background:#00a6d6;box-shadow:0 0 0 4px rgba(0,166,214,.12); animation:o3d-pulse 2.7s ease-in-out infinite;" />
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); text-align:center;">
+              <div style="font-family:'Geist Mono Variable',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#5f7886; background:rgba(8,16,25,.7); border:1px solid rgba(255,255,255,.1); border-radius:5px; padding:12px 18px;">
+                Embed your web map here — set <span style="color:#34c3f0;">mapEmbedUrl</span>
+              </div>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>

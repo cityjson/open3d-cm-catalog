@@ -1,0 +1,59 @@
+---
+const cards = [
+  {
+    n: "001",
+    title: "Scattered & siloed",
+    body: "Lists live in random READMEs, gists and wikis. There's no single place to look.",
+  },
+  {
+    n: "002",
+    title: "Inconsistent metadata",
+    body: "No shared schema for CRS, level of detail or format — so datasets can't be compared.",
+  },
+  {
+    n: "003",
+    title: "Goes stale",
+    body: "Links rot, versions drift, and there's no signal when a dataset is updated.",
+  },
+  {
+    n: "004",
+    title: "Invisible on a map",
+    body: "You can't see global coverage at a glance — or find what exists near you.",
+  },
+];
+---
+
+<section
+  id="problem"
+  style="background:#091420; border-top:1px solid rgba(255,255,255,.06); padding:96px 56px;"
+>
+  <div style="max-width:1280px; margin:0 auto;">
+    <div
+      style="font-family:'Geist Mono Variable',monospace; font-size:12.5px; letter-spacing:.18em; text-transform:uppercase; color:#7e96a3; margin-bottom:18px;"
+    >
+      01 — The problem
+    </div>
+    <h2
+      style="margin:0 0 18px; font-size:40px; line-height:1.1; letter-spacing:-.02em; font-weight:700; max-width:18em; text-wrap:balance;"
+    >
+      Finding 3D city models is harder than it should be.
+    </h2>
+    <p style="margin:0 0 56px; font-size:18px; line-height:1.55; color:#9fb2bd; max-width:42em;">
+      No initiative has ever curated the world's 3D city models in one uniform place. What exists is
+      scattered, inconsistent, and easy to lose track of.
+    </p>
+    <div class="o3d-grid-4" style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px;">
+      {
+        cards.map((card) => (
+          <div style="background:#0c1d29; border:1px solid rgba(255,255,255,.09); border-radius:8px; padding:24px;">
+            <div style="font-family:'Geist Mono Variable',monospace; font-size:11.5px; color:#00a6d6; margin-bottom:14px;">
+              {card.n}
+            </div>
+            <div style="font-size:17px; font-weight:600; margin-bottom:8px;">{card.title}</div>
+            <p style="margin:0; font-size:14px; line-height:1.5; color:#8aa2b0;">{card.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

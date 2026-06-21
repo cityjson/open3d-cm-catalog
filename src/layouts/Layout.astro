@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { asset } from "@/lib/site";
 
 interface Props {
   title?: string;
@@ -16,13 +17,82 @@ const {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={asset("favicon.svg")} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="bg-background text-foreground min-h-svh antialiased">
+  <body
+    class="antialiased"
+    style="margin:0; min-height:100svh; background:#0a1620; color:#eaf1f5; font-family:'Geist Variable', system-ui, sans-serif; overflow-x:hidden;"
+  >
     <slot />
+    <style is:global>
+      @keyframes o3d-pulse {
+        0%,
+        100% {
+          opacity: 0.35;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.18);
+        }
+      }
+      @keyframes o3d-blink {
+        0%,
+        49% {
+          opacity: 1;
+        }
+        50%,
+        100% {
+          opacity: 0;
+        }
+      }
+      ::selection {
+        background: #00a6d6;
+        color: #03121b;
+      }
+
+      /* The Claude Design source targeted a fixed 1440px canvas; these
+         breakpoints collapse the multi-column sections so the site is usable
+         on tablets and phones. */
+      @media (max-width: 1024px) {
+        .o3d-hero-grid,
+        .o3d-stac-grid,
+        .o3d-contribute-grid {
+          grid-template-columns: 1fr !important;
+        }
+        .o3d-grid-4 {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+        .o3d-footer-grid {
+          grid-template-columns: 1fr 1fr !important;
+        }
+      }
+      @media (max-width: 640px) {
+        .o3d-grid-4,
+        .o3d-footer-grid {
+          grid-template-columns: 1fr !important;
+        }
+        /* Tighten the generous desktop side padding on phones. */
+        body > nav,
+        body > section,
+        body > footer {
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
+        body > section {
+          padding-top: 64px !important;
+          padding-bottom: 64px !important;
+        }
+        /* No hamburger in the source design — hide in-page anchors on phones,
+           keeping the logo and the GitHub call-to-action. */
+        .o3d-nav-anchors {
+          display: none !important;
+        }
+      }
+    </style>
   </body>
 </html>

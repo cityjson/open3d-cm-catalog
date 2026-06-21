@@ -1,69 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { CatalogCount } from "@/components/CatalogCount";
-
-const REGISTRY_URL = "https://github.com/cityjson/city3d-stac-registry";
-
-const features = [
-  {
-    title: "STAC extension",
-    description:
-      "A SpatioTemporal Asset Catalog extension that describes 3D city models such as CityJSON and CityGML in a standard, discoverable way.",
-  },
-  {
-    title: "Open registry",
-    description:
-      "A curated, community-maintained list of 3D city models from around the world — searchable and machine-readable.",
-  },
-  {
-    title: "Contribute via PR",
-    description:
-      "Anyone can add or update a dataset by opening a pull request on GitHub. No gatekeeping, just open data.",
-  },
-];
+import SiteNav from "@/components/landing/SiteNav.astro";
+import Hero from "@/components/landing/Hero.astro";
+import ProblemSection from "@/components/landing/ProblemSection.astro";
+import StacSection from "@/components/landing/StacSection.astro";
+import MapSection from "@/components/landing/MapSection.astro";
+import ContributeSection from "@/components/landing/ContributeSection.astro";
+import CtaStrip from "@/components/landing/CtaStrip.astro";
+import SiteFooter from "@/components/landing/SiteFooter.astro";
 ---
 
 <Layout>
-  <main class="mx-auto flex max-w-3xl flex-col gap-12 px-6 py-24">
-    <section class="flex flex-col items-start gap-4">
-      <Badge variant="secondary">CityJSON · CityGML · STAC</Badge>
-      <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-        Open 3D City Model Catalog
-      </h1>
-      <p class="text-muted-foreground max-w-prose text-lg">
-        A STAC extension and open registry that makes the world's 3D city models
-        discoverable, standardised, and easy to contribute to.
-      </p>
-      <div class="flex flex-wrap items-center gap-3 pt-2">
-        <Button asChild>
-          <a href={REGISTRY_URL} target="_blank" rel="noreferrer">Browse the registry</a>
-        </Button>
-        <CatalogCount client:load />
-      </div>
-    </section>
-
-    <section class="grid gap-4 sm:grid-cols-3">
-      {
-        features.map((feature) => (
-          <Card>
-            <CardHeader>
-              <CardTitle>{feature.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription>{feature.description}</CardDescription>
-            </CardContent>
-          </Card>
-        ))
-      }
-    </section>
-  </main>
+  <SiteNav />
+  <Hero />
+  <ProblemSection />
+  <StacSection />
+  <MapSection />
+  <ContributeSection />
+  <CtaStrip />
+  <SiteFooter />
 </Layout>

@@ -35,9 +35,10 @@ there is no standalone Vite config — Vite plugins (e.g. Tailwind) are register
 
 **React 19 for interactivity, via Astro islands.** `.astro` files render to static HTML at build time and
 ship zero JS. Anything interactive must be a React `.tsx` component mounted in an `.astro` file with a
-`client:*` directive (e.g. `<CatalogCount client:load />`). Without a `client:` directive a React component
-renders statically and is _not_ hydrated. See `src/components/CatalogCount.tsx` + its use in
-`src/pages/index.astro` for the canonical pattern.
+`client:*` directive. Without a `client:` directive a React component renders statically and is _not_
+hydrated. The landing page is the canonical example: it's static `.astro` sections in
+`src/components/landing/`, with one island — `CopyCommand.tsx` (`client:visible`) used by
+`ContributeSection.astro` — for the only stateful piece.
 
 **Tailwind v4 + shadcn/ui.** Tailwind v4 is CSS-first: there is **no `tailwind.config.js`**. The design
 tokens (colors, fonts, radii) live as CSS variables and `@theme` blocks in `src/styles/global.css` — change
@@ -65,8 +66,23 @@ Important limitations to keep in mind:
 - `react/react-in-jsx-scope` is disabled on purpose — the project uses the modern JSX transform
   (`jsx: "react-jsx"`), so importing `React` is unnecessary.
 
+## Deployment
+
+Deployed to **GitHub Pages as a project site** at `https://hideba.github.io/open3d-catalog/`. Two workflows
+in `.github/workflows/`:
+
+- `ci.yml` — runs `format:check` + `lint` + `check` + `build` on every push and PR to `main`.
+- `deploy.yml` — on push to `main`, builds with `withastro/action` and publishes to Pages. Pages must be set
+  to "GitHub Actions" as the source in the repo settings for the first deploy to work.
+
+**Base path gotcha:** because it's a project site, `astro.config.mjs` sets `base: "/open3d-catalog"`. So
+**every reference to a file in `public/` must go through the `asset()` helper in `src/lib/site.ts`** (it
+prefixes `import.meta.env.BASE_URL`). A bare `/favicon.svg` or `/assets/foo.png` will 404 on Pages. In-page
+`#hash` anchors are fine as-is. Override the base at build time with `PUBLIC_BASE=/` (e.g. for a custom domain).
+
 ## Conventions
 
 - Components needing browser state/events → React `.tsx` with a `client:` directive. Everything else → `.astro`.
 - New shadcn components via the CLI, not copy-paste.
+- Reference `public/` assets via `asset(...)`, never bare absolute paths (base-path safety).
 - Run `pnpm validate` before considering a change done.

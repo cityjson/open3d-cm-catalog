@@ -1,0 +1,72 @@
+---
+import { asset, ghUrl, paperUrl } from "@/lib/site";
+---
+
+<footer style="background:#070f17; border-top:1px solid rgba(255,255,255,.07); padding:64px 56px 40px;">
+  <div style="max-width:1280px; margin:0 auto;">
+    <div
+      class="o3d-footer-grid"
+      style="display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.07);"
+    >
+      <div>
+        <div style="display:flex; align-items:center; gap:11px; margin-bottom:16px;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2 22 7.5V16.5L12 22 2 16.5V7.5L12 2Z" stroke="#00a6d6" stroke-width="1.4"></path>
+            <path
+              d="M12 2V12M12 12 22 7.5M12 12 2 7.5M12 12V22"
+              stroke="#00a6d6"
+              stroke-width="1.2"
+              opacity=".55"></path>
+          </svg>
+          <span style="font-weight:600; font-size:16px;">Open3D City Model Catalog</span>
+        </div>
+        <p style="margin:0; font-size:14.5px; line-height:1.6; color:#7e96a3; max-width:30em;">
+          An open, community-curated registry and STAC extension for the world's 3D city models.
+          CityJSON, CityGML, and beyond.
+        </p>
+      </div>
+      <div>
+        <div
+          style="font-family:'Geist Mono Variable',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#56707e; margin-bottom:16px;"
+        >
+          Project
+        </div>
+        <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px;">
+          <a href={ghUrl} target="_blank" rel="noreferrer" style="color:#aebec9; text-decoration:none;">Registry</a>
+          <a href="#stac" style="color:#aebec9; text-decoration:none;">STAC extension</a>
+          <a href={paperUrl} target="_blank" rel="noreferrer" style="color:#aebec9; text-decoration:none;">Research paper</a>
+        </div>
+      </div>
+      <div>
+        <div
+          style="font-family:'Geist Mono Variable',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:#56707e; margin-bottom:16px;"
+        >
+          Community
+        </div>
+        <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px;">
+          <a href={ghUrl} target="_blank" rel="noreferrer" style="color:#aebec9; text-decoration:none;">GitHub</a>
+          <a href={`${ghUrl}/issues`} target="_blank" rel="noreferrer" style="color:#aebec9; text-decoration:none;">Issues</a>
+          <a href={`${ghUrl}/pulls`} target="_blank" rel="noreferrer" style="color:#aebec9; text-decoration:none;">Pull requests</a>
+        </div>
+      </div>
+    </div>
+    <div
+      style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding-top:32px; flex-wrap:wrap;"
+    >
+      <div style="display:flex; align-items:center; gap:28px;">
+        <img
+          src={asset("assets/tudelft-3dgeoinfo.png")}
+          alt="TU Delft 3Dgeoinfo"
+          style="height:46px; width:auto; filter:invert(1) brightness(1.9);"
+        />
+        <div style="font-size:13.5px; line-height:1.5; color:#6f8794;">
+          Maintained by the <b style="color:#aebec9; font-weight:500;">3D geoinformation group</b><br
+          />Delft University of Technology
+        </div>
+      </div>
+      <div style="font-family:'Geist Mono Variable',monospace; font-size:12px; color:#56707e;">
+        CC BY 4.0 · Open data
+      </div>
+    </div>
+  </div>
+</footer>
