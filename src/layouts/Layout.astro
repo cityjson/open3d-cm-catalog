@@ -17,7 +17,7 @@ const {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={asset("favicon.svg")} />
+    <link rel="icon" sizes="any" href={asset("favicon.ico")} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -61,6 +61,7 @@ const {
       @media (max-width: 1024px) {
         .o3d-hero-grid,
         .o3d-stac-grid,
+        .o3d-ai-grid,
         .o3d-contribute-grid {
           grid-template-columns: 1fr !important;
         }

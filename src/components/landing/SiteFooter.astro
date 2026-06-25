@@ -1,5 +1,5 @@
 ---
-import { asset, ghUrl, paperUrl } from "@/lib/site";
+import { asset, ghUrl } from "@/lib/site";
 ---
 
 <footer style="background:#070f17; border-top:1px solid rgba(255,255,255,.07); padding:64px 56px 40px;">
@@ -9,16 +9,12 @@ import { asset, ghUrl, paperUrl } from "@/lib/site";
       style="display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.07);"
     >
       <div>
-        <div style="display:flex; align-items:center; gap:11px; margin-bottom:16px;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2 22 7.5V16.5L12 22 2 16.5V7.5L12 2Z" stroke="#00a6d6" stroke-width="1.4"></path>
-            <path
-              d="M12 2V12M12 12 22 7.5M12 12 2 7.5M12 12V22"
-              stroke="#00a6d6"
-              stroke-width="1.2"
-              opacity=".55"></path>
-          </svg>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
           <span style="font-weight:600; font-size:16px;">Open3D City Model Catalog</span>
+          <span
+            style="font-family:'Geist Mono Variable',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#e5b33a; padding:2px 7px; border:1px solid rgba(229,179,58,.4); border-radius:999px;"
+            >Beta</span
+          >
         </div>
         <p style="margin:0; font-size:14.5px; line-height:1.6; color:#7e96a3; max-width:30em;">
           An open, community-curated registry and STAC extension for the world's 3D city models.
@@ -34,7 +30,7 @@ import { asset, ghUrl, paperUrl } from "@/lib/site";
         <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px;">
           <a href={ghUrl} target="_blank" rel="noreferrer" style="color:#aebec9; text-decoration:none;">Registry</a>
           <a href="#stac" style="color:#aebec9; text-decoration:none;">STAC extension</a>
-          <a href={paperUrl} target="_blank" rel="noreferrer" style="color:#aebec9; text-decoration:none;">Research paper</a>
+          <span style="color:#6f8794;">Research paper · under review</span>
         </div>
       </div>
       <div>

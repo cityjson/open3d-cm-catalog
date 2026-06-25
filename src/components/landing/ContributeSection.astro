@@ -75,15 +75,22 @@ const steps = [
             <CopyCommand client:visible />
           </div>
           <pre
-            style="margin:0; padding:18px 16px; font-family:'Geist Mono Variable',monospace; font-size:12.5px; line-height:1.9; color:#9fb2bd; white-space:pre-wrap;"><span style="color:#5f7886;"># clone the registry</span>
-<span style="color:#00a6d6;">git</span> clone city3d-stac-registry
+            style="margin:0; padding:18px 16px; font-family:'Geist Mono Variable',monospace; font-size:12.5px; line-height:1.9; color:#9fb2bd; white-space:pre-wrap;"><span style="color:#5f7886;"># install the city3dstac CLI</span>
+<span style="color:#00a6d6;">cargo</span> install --git …/city3d-stac-tool.git --bin city3dstac
 
-<span style="color:#5f7886;"># validate your item</span>
-<span style="color:#00a6d6;">stac-validator</span> delft.json
-
-<span style="color:#5f7886;"># open a pull request</span>
-<span style="color:#00a6d6;">gh</span> pr create</pre>
+<span style="color:#5f7886;"># validate your dataset config</span>
+<span style="color:#00a6d6;">city3dstac</span> collection --config collections/rotterdam.yaml --dry-run</pre>
         </div>
+        <p style="margin:14px 0 0; font-size:13px; line-height:1.55; color:#7e96a3;">
+          One or two lines to get going — see the
+          <a
+            href={`${ghUrl}#readme`}
+            target="_blank"
+            rel="noreferrer"
+            style="color:#34c3f0; text-decoration:none; border-bottom:1px solid rgba(52,195,240,.4);"
+            >registry README</a
+          > for the full workflow.
+        </p>
         <a
           href={ghUrl}
           target="_blank"

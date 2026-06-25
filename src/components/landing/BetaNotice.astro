@@ -1,0 +1,23 @@
+---
+import { ghUrl } from "@/lib/site";
+---
+
+<div
+  style="display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; padding:11px 24px; text-align:center; background:rgba(229,179,58,.07); border-bottom:1px solid rgba(229,179,58,.18); font-size:13.5px; color:#c9b888;"
+>
+  <span
+    style="font-family:'Geist Mono Variable',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#e5b33a; padding:2px 7px; border:1px solid rgba(229,179,58,.4); border-radius:999px;"
+    >Beta</span
+  >
+  <span>
+    This registry is a work in progress — datasets may be incomplete and license information may be
+    inaccurate. Spotted something wrong?
+    <a
+      href={`${ghUrl}/pulls`}
+      target="_blank"
+      rel="noreferrer"
+      style="color:#e5b33a; text-decoration:none; border-bottom:1px solid rgba(229,179,58,.4);"
+      >Fix it with a pull request</a
+    >.
+  </span>
+</div>

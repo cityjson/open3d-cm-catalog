@@ -1,6 +1,9 @@
 import { useRef, useState } from "react";
 
-const COMMAND = "git clone city3d-stac-registry\nstac-validator delft.json\ngh pr create";
+const COMMAND = [
+  "cargo install --git ssh://git@github.com/HideBa/city3d-stac-tool.git --bin city3dstac",
+  "city3dstac collection --config collections/rotterdam.yaml --dry-run",
+].join("\n");
 
 /**
  * The "terminal" card from the Contribute section. Static markup lives in the
