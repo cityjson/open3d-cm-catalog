@@ -39,3 +39,7 @@ pnpm dev          # http://localhost:4321
 Add a shadcn component with `pnpm dlx shadcn@latest add <component>`.
 
 See [`CLAUDE.md`](./CLAUDE.md) for architecture notes and conventions.
+
+## License
+
+[MIT](./LICENSE) © 2026 Hidemichi Baba
