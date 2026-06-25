@@ -68,14 +68,14 @@ Important limitations to keep in mind:
 
 ## Deployment
 
-Deployed to **GitHub Pages as a project site** at `https://hideba.github.io/open3d-catalog/`. Two workflows
+Deployed to **GitHub Pages as a project site** at `https://hideba.github.io/open3d-cm-catalog/`. Two workflows
 in `.github/workflows/`:
 
 - `ci.yml` — runs `format:check` + `lint` + `check` + `build` on every push and PR to `main`.
 - `deploy.yml` — on push to `main`, builds with `withastro/action` and publishes to Pages. Pages must be set
   to "GitHub Actions" as the source in the repo settings for the first deploy to work.
 
-**Base path gotcha:** because it's a project site, `astro.config.mjs` sets `base: "/open3d-catalog"`. So
+**Base path gotcha:** because it's a project site, `astro.config.mjs` sets `base: "/open3d-cm-catalog"`. So
 **every reference to a file in `public/` must go through the `asset()` helper in `src/lib/site.ts`** (it
 prefixes `import.meta.env.BASE_URL`). A bare `/favicon.svg` or `/assets/foo.png` will 404 on Pages. In-page
 `#hash` anchors are fine as-is. Override the base at build time with `PUBLIC_BASE=/` (e.g. for a custom domain).
