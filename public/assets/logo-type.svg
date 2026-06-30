@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewBox="0 0 208 64" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Open3D — horizontal lockup (on dark)</title>
+  <g transform="translate(0,2)">
+    <path d="M30 6 H10 Q7 6 7 9 V30" stroke="#7fb9c4" stroke-width="2.8"></path>
+    <path d="M39 15 H19 Q16 15 16 18 V39" stroke="#2ba6b3" stroke-width="2.8"></path>
+    <path d="M52 24 H28 Q25 24 25 27 V51" stroke="#00a6d6" stroke-width="3.4"></path>
+    <path d="M30 57 H54 Q57 57 57 54 V30" stroke="#00a6d6" stroke-width="3.4"></path>
+    <path d="M41 30 52 36 41 42 30 36Z" fill="#34c3f0" fill-opacity=".22" stroke="#34c3f0" stroke-width="1.7"></path>
+    <path d="M30 36 41 42 41 52 30 46Z" fill="#34c3f0" fill-opacity=".10" stroke="#34c3f0" stroke-width="1.7"></path>
+    <path d="M41 42 52 36 52 46 41 52Z" fill="#34c3f0" fill-opacity=".32" stroke="#34c3f0" stroke-width="1.7"></path>
+  </g>
+  <text x="74" y="42" font-family="&#39;Geist&#39;,&#39;Helvetica Neue&#39;,Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="-0.8" fill="#eaf1f5">Open<tspan fill="#00a6d6">3D</tspan></text>
+</svg>

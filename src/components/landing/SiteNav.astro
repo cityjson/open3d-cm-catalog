@@ -1,13 +1,18 @@
 ---
-import { ghUrl } from "@/lib/site";
+import { asset, ghUrl } from "@/lib/site";
 ---
 
 <nav
   style="position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:18px 56px; background:rgba(10,22,32,.86); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.07);"
 >
   <div style="display:flex; align-items:center; gap:11px;">
-    <span style="font-weight:600; font-size:16px; letter-spacing:-.01em;"
-      >Open3D <span style="color:#7e96a3; font-weight:400;">City Model Catalog</span></span
+    <img
+      src={asset("assets/logo-type.svg")}
+      alt="Open3D"
+      style="height:26px; width:auto; display:block;"
+    />
+    <span style="font-size:16px; font-weight:400; letter-spacing:-.01em; color:#7e96a3;"
+      >City Model Catalog</span
     >
     <span
       style="font-family:'Geist Mono Variable',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#e5b33a; padding:3px 8px; border:1px solid rgba(229,179,58,.4); border-radius:999px; background:rgba(229,179,58,.08);"
