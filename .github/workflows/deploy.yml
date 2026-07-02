@@ -26,6 +26,10 @@ jobs:
         uses: withastro/action@v4
         # withastro/action detects pnpm from packageManager, installs,
         # runs `astro build`, and uploads the Pages artifact from ./dist.
+        env:
+          # Site is served at the custom domain root (catalog.open3d.city),
+          # not the /open3d-cm-catalog/ GitHub Pages project-site subpath.
+          PUBLIC_BASE: /
 
   deploy:
     needs: build
