@@ -3,7 +3,7 @@ export const site = {
   githubUrl: "https://github.com/cityjson/city3d-stac-registry",
   paperUrl: "https://3d.bk.tudelft.nl/publications/",
   /** Set to "" to render the placeholder map instead of an embedded iframe. */
-  mapEmbedUrl: "https://cityjson.github.io/city3d-stac-map",
+  mapEmbedUrl: "https://map.catalog.open3d.city",
 } as const;
 
 /** GitHub URL without a trailing slash, for building `/issues`, `/pulls`, etc. */

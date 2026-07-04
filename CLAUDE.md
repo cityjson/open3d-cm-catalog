@@ -68,17 +68,22 @@ Important limitations to keep in mind:
 
 ## Deployment
 
-Deployed to **GitHub Pages as a project site** at `https://hideba.github.io/open3d-cm-catalog/`. Two workflows
-in `.github/workflows/`:
+Deployed to **GitHub Pages**, served behind the custom domain `https://catalog.open3d.city/` (root path, not
+a `/open3d-cm-catalog/` subpath). `public/CNAME` pins the domain — GitHub Pages needs it in the published
+build output for Actions-based deployments (it isn't written automatically the way it is for branch-based
+Pages sources). The companion map lives at `https://map.catalog.open3d.city` (referenced via `mapEmbedUrl` in
+`src/lib/site.ts`). Two workflows in `.github/workflows/`:
 
 - `ci.yml` — runs `format:check` + `lint` + `check` + `build` on every push and PR to `main`.
 - `deploy.yml` — on push to `main`, builds with `withastro/action` and publishes to Pages. Pages must be set
   to "GitHub Actions" as the source in the repo settings for the first deploy to work.
 
-**Base path gotcha:** because it's a project site, `astro.config.mjs` sets `base: "/open3d-cm-catalog"`. So
-**every reference to a file in `public/` must go through the `asset()` helper in `src/lib/site.ts`** (it
-prefixes `import.meta.env.BASE_URL`). A bare `/favicon.svg` or `/assets/foo.png` will 404 on Pages. In-page
-`#hash` anchors are fine as-is. Override the base at build time with `PUBLIC_BASE=/` (e.g. for a custom domain).
+**Base path gotcha:** `astro.config.mjs` defaults `base` to `"/"` since the site is served at the custom
+domain's root. So **every reference to a file in `public/` must still go through the `asset()` helper in
+`src/lib/site.ts`** (it prefixes `import.meta.env.BASE_URL`) — a bare `/favicon.svg` or `/assets/foo.png`
+works today but would 404 if the site ever falls back to being served from a GitHub Pages project subpath.
+In-page `#hash` anchors are fine as-is. Override the base at build time with
+`PUBLIC_BASE=/open3d-cm-catalog` for that GitHub Pages subpath fallback.
 
 ## Conventions
 
